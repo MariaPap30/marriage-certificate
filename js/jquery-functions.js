@@ -197,7 +197,7 @@ $("document").ready(function () {
   function convertURLsToLinks(text) {
     return text.replace(
       /https:\/\/www\.gov\.gr\/[\S]+/g,
-      '<a href="$&" target="_blank">' + "myKEPlive" + "</a>" + "."
+      '<a href="$&" target="_blank">' + "gov.gr" + "</a>" + "."
     );
   }
 
@@ -303,7 +303,7 @@ $("document").ready(function () {
     const error =
       currentLanguage === "greek"
         ? "Λυπούμαστε αλλά δεν δικαιούστε την χορήγηση του ψηφιακού πιστοποιητικού γάμου. Παρακαλώ επισκεφθείτε ένα κατάστημα ΚΕΠ. "
-        : "We are sorry but you are not entitled to the transportation card for the disabled!";
+        : "We are sorry but you are not eligible for the digital marriage certificate.";
     errorEnd.className = "govgr-error-summary";
     errorEnd.textContent = error + " " + message;
     $(".question-container").html(errorEnd);
@@ -412,7 +412,7 @@ $("document").ready(function () {
           "<br /><br /><h5 class='answer'>Τα δικαιολογητικά που πρέπει να προσκομίσετε για να λάβετε το ψηφιακό πιστοποιητικό γάμου είναι τα εξής:</h5><br />"
         )
       : $(".question-container").append(
-          "<br /><br /><h5 class='answer'>The documents you need to provide in order to receive your transportation card are the following:</h5><br />"
+          "<br /><br /><h5 class='answer'>The documents you need to provide in order to receive your marriage certificate are the following:</h5><br />"
         );
     $(".question-container").append(evidenceListElement);
     $("#faqContainer").load("faq.html");
@@ -429,13 +429,13 @@ $("document").ready(function () {
       console.log(selectedRadioButtonIndex);
       if (currentQuestion === 0 && selectedRadioButtonIndex === 2) {
         currentQuestion = -1;
-        currentLanguage === "greek" ? skipToEnd("θα πρέπει να ολοκληρώσετε την τελετή γάμου") : skipToEnd("You can reissue it only one time after loss.");
+        currentLanguage === "greek" ? skipToEnd("θα πρέπει να ολοκληρώσετε την τελετή γάμου") : skipToEnd("You have to complete the wedding ceremony.");
       } else if (currentQuestion === 1 && selectedRadioButtonIndex === 2) {
         currentQuestion = -1;
         currentLanguage === "greek" ? skipToEnd("Πρέπει να είστε μόνιμος και νόμιμος κάτοικος της Ελλάδας για την χορήγηση ψηφιακού πιστοποιητικού γάμου.") : skipToEnd("You must be permanent and legal resident of Greece.");
       } else if (currentQuestion === 2 && (selectedRadioButtonIndex === 2 || selectedRadioButtonIndex === 3)) {
         currentQuestion = -1;
-        currentLanguage === "greek" ? skipToEnd("Θα πρέπει να καταθέσετε τα απαραίτητα δικαιολογητικά τουλάχιστον μία εργασιμη ημέρα ") : skipToEnd("You must have a disability rate of 67% or more or be a beneficiary of the OPEKA benefit.");
+        currentLanguage === "greek" ? skipToEnd("Θα πρέπει να καταθέσετε τα απαραίτητα δικαιολογητικά τουλάχιστον μία εργασιμη ημέρα ") : skipToEnd("You should submit the necessary supporting documents at least one working day.");
       } else {
         //save selectedRadioButtonIndex to the storage
         userAnswers[currentQuestion] = selectedRadioButtonIndex;
